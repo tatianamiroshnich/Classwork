@@ -2,7 +2,7 @@
  * Created by student on 5/20/2018.
  */
 public class Student {
-    private String firstName,lastName, group;
+    private String firstName, lastName, group;
     private double averageMark;
 
     public Student(String firstName, String lastName, String group, double averageMark) {
@@ -17,6 +17,14 @@ public class Student {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public double getScholarShip() {
+        if (getAverageMark() == 5) {
+            return 100;
+        } else {
+            return 80;
+        }
     }
 
     public void setFirstName(String firstName) {

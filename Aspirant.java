@@ -9,11 +9,20 @@ public class Aspirant extends Student {
         this.work = work;
     }
 
+
     public String getWork() {
         return work;
     }
 
     public void setWork(String work) {
         this.work = work;
+    }
+
+    public double getScholarShip() {
+        if (getAverageMark() == 5) {
+            return 200;
+        } else {
+            return 180;
+        }
     }
 }
