@@ -1,4 +1,4 @@
-
+package lessonInterface;
 
 public class Book implements Printable {
     private String name;
@@ -34,7 +34,7 @@ public class Book implements Printable {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "lessonInterface.Book{" +
                 "name='" + name + '\'' +
                 '}';
     }

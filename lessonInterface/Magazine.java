@@ -1,3 +1,5 @@
+package lessonInterface;
+
 public class Magazine implements Printable {
     private String name;
     private int number;
@@ -43,7 +45,7 @@ public class Magazine implements Printable {
 
     @Override
     public String toString() {
-        return "Magazine{" +
+        return "lessonInterface.Magazine{" +
                 "name='" + name + '\'' +
                 ", number=" + number +
                 '}';
