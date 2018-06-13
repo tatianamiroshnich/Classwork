@@ -20,5 +20,6 @@ public class StringBuildingDemo {
             str.replace(pos, pos + 1, "равно");
         }
         System.out.println(str);
+
     }
 }
