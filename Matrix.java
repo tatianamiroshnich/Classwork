@@ -1,68 +1,86 @@
 import java.util.Arrays;
 
-/**
- * Created by student on 5/20/2018.
- */
-public class Matrix {
-    private double[][] array;
-    private int row, column;
+public class Matrix<T extends Number> {
 
-    public Matrix(double[][] array, int row, int column) {
+    private T[][] array;
+    private T row, column;
+
+    public Matrix(T[][] array, T row, T column) {
         this.array = array;
         this.row = row;
         this.column = column;
     }
 
-    public Matrix(double[][] array) {
+    public Matrix(T[][] array) {
         this.array = array;
-        this.row = array.length;
-        this.column = array[0].length;
     }
 
+    public T[][] getArray() {
+        return array;
+    }
+
+    public void setArray(T[][] array) {
+        this.array = array;
+    }
+
+    public T getRow() {
+        return row;
+    }
+
+    public void setRow(T row) {
+        this.row = row;
+    }
+
+    public T getColumn() {
+        return column;
+    }
+
+    public void setColumn(T column) {
+        this.column = column;
+    }
+/*
     public Matrix summ(Matrix matrix) {
-        if (matrix.row != this.row || matrix.column != this.column) {
+        if (array.getRow() != this.row || array.getColumn() != this.column) {
             System.out.println("Размер матриц не совпадает");
             return null;
         }
-        double[][] resultArray = new double[this.row][this.column];
+        Double[][] resultArray = new Double[row][column];
         for (int i = 0; i < this.row; i++) {
             for (int j = 0; j < this.column; j++) {
                 resultArray[i][j] = this.array[i][j] + matrix.array[i][j];
             }
         }
-        return new Matrix(resultArray);
+        return new Matrix1(resultArray);
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Matrix<?> matrix = (Matrix<?>) o;
+
+        // Compare nested arrays - values of array here
+        if (row != null ? !row.equals(matrix.row) : matrix.row != null) return false;
+        return column != null ? column.equals(matrix.column) : matrix.column == null;
     }
 
-    public Matrix multiplication(double number) {
-
-        double[][] resultArray = new double[this.row][this.column];
-        for (int i = 0; i < this.row; i++) {
-            for (int j = 0; j < this.column; j++) {
-                resultArray[i][j] = this.array[i][j] * number;
-            }
-        }
-        return new Matrix(resultArray);
+    @Override
+    public int hashCode() {
+        int result = array != null ? array.hashCode() : 0;
+        result = 31 * result + (row != null ? row.hashCode() : 0);
+        result = 31 * result + (column != null ? column.hashCode() : 0);
+        return result;
     }
 
-    public void print() {
-        for (int i = 0; i < this.row; i++) {
-            for (int j = 0; j < this.column; j++) {
-                System.out.print(this.array[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    public static void main(String[] args) {
-        double[][] array1 = {{1, 1, 1}, {2, 2, 2}};
-        Matrix matrix1 = new Matrix(array1);
-        Matrix matrix2 = new Matrix(new double[][]{{2, 2, 2}, {3, 3, 3}});
-        Matrix matrix3 = matrix1.summ(matrix2);
-        System.out.println(Arrays.deepToString(matrix3.array));
-
-        Matrix matrix4 = matrix1.multiplication(3);
-        System.out.println(Arrays.deepToString(matrix4.array));
-
-        matrix1.print();
+    @Override
+    public String toString() {
+        return "Matrix{" +
+                "array=" + (array == null ? null : Arrays.asList(array)) +
+                ", row=" + row +
+                ", column=" + column +
+                '}';
     }
 }
+
+
