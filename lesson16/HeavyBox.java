@@ -19,7 +19,7 @@ public class HeavyBox extends Box6 implements Comparable<HeavyBox> {
     public String toString() {
         return "HeavyBox{" +
                 "weight=" + weight +
-                "} " ;
+                "} ";
     }
 
     @Override
