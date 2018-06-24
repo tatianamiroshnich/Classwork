@@ -1,5 +1,6 @@
 package lesson16task9;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -16,6 +17,7 @@ public class HashMapDemo {
 
         printByEntrySet(map);
         printByKeys(map);
+        printByValues(map);
     }
 
     public static void printByEntrySet(Map<String, Toy> map) {
@@ -30,6 +32,13 @@ public class HashMapDemo {
         Set<String> keys = map.keySet();
         for (String key : keys){
             System.out.println(key);
+        }
+    }
+
+    public static void printByValues(Map<String,Toy>map){
+        Collection<Toy> values = map.values();
+        for (Toy toy : values){
+            System.out.println(toy);
         }
     }
 
